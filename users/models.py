@@ -36,3 +36,4 @@ class User(AbstractUser):
     )
     profile_icon = models.URLField(null=True, blank=True)
     bio = models.CharField(blank=True, null=True, max_length=255)
+    discord = models.CharField(blank=True, null=True, max_length=50)
