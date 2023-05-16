@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.generics import (
     CreateAPIView,
     ListAPIView,
-    RetrieveDestroyAPIView,
+    RetrieveUpdateDestroyAPIView,
     UpdateAPIView,
 )
 from .models import User
@@ -24,7 +24,7 @@ class UserView(ListAPIView):
     serializer_class = UserSerializer
 
 
-class UserDetailView(RetrieveDestroyAPIView):
+class UserDetailView(RetrieveUpdateDestroyAPIView):
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticatedOrReadOnly, IsAccountOwnerPermission]
 
