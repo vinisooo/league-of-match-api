@@ -34,5 +34,5 @@ class User(AbstractUser):
         on_delete=models.SET_NULL,
         related_name="users",
     )
-    profile_icon = models.URLField()
+    profile_icon = models.URLField(null=True, blank=True)
     bio = models.CharField(blank=True, null=True, max_length=255)
