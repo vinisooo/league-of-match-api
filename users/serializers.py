@@ -14,6 +14,7 @@ class UserSerializer(serializers.ModelSerializer):
         allow_null=True,
         allow_blank=True,
         max_length=50,
+        required=False,
         validators=[RegexValidator(r"^[a-zA-Z]+\#\d{4}$", "Invalid discord format.")],
     )
 
