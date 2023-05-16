@@ -15,15 +15,14 @@ class EloChoices(models.TextChoices):
 
 
 class RouteChoices(models.TextChoices):
-    TOPLANE = "toplane"
-    JUNGLE = "jungle"
-    MIDLANE = "midlane"
-    ADC = "adc"
-    SUPPORT = "support"
+    TOPLANE = "Toplane"
+    JUNGLE = "Jungle"
+    MIDLANE = "Midlane"
+    ADC = "Adc"
+    SUPPORT = "Support"
 
 
 class User(AbstractUser):
-    nickname = models.CharField(max_length=75)
     elo = models.TextField(max_length=25, choices=EloChoices.choices)
     route = models.TextField(
         max_length=10, choices=RouteChoices.choices, null=True, blank=True
