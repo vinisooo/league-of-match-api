@@ -99,6 +99,7 @@ WSGI_APPLICATION = "_core.wsgi.application"
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
+    "https://league-of-match-steel.vercel.app",
 ]
 
 
