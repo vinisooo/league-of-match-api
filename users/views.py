@@ -8,8 +8,10 @@ from rest_framework.generics import (
 from .models import User
 from .serializers import UserSerializer
 from rest_framework_simplejwt.authentication import JWTAuthentication
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from .permissions import IsAccountOwnerPermission
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
 
 class UserRegisterView(CreateAPIView):
