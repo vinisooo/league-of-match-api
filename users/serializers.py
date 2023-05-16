@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import User, RouteChoices, EloChoices
+import re
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -12,4 +13,7 @@ class UserSerializer(serializers.ModelSerializer):
                 "choices": EloChoices,
             },
             "route": {"choices": RouteChoices},
+            "discord": serializers.CharField(
+                validators=[lambda x: re.match(r"^\d{18}$", x)]
+            ),
         }
