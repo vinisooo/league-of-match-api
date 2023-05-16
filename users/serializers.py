@@ -4,10 +4,18 @@ import re
 from characters.models import Character
 from characters.serializers import CharacterSerializer
 from django.shortcuts import get_object_or_404
+from django.core.validators import RegexValidator
 
 
 class UserSerializer(serializers.ModelSerializer):
     main = CharacterSerializer(read_only=True)
+
+    discord = serializers.CharField(
+        allow_null=True,
+        allow_blank=True,
+        max_length=50,
+        validators=[RegexValidator(r"^[a-zA-Z]+\#\d{4}$", "Invalid discord format.")],
+    )
 
     class Meta:
         model = User
@@ -29,9 +37,6 @@ class UserSerializer(serializers.ModelSerializer):
                 "choices": EloChoices.choices,
             },
             "route": {"choices": RouteChoices.choices},
-            "discord": serializers.CharField(
-                validators=[lambda x: x is None or re.match(r"^\d{18}$", x)]
-            ),
             "password": {"required": True, "write_only": True},
         }
 
