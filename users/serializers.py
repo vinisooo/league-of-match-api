@@ -21,6 +21,7 @@ class UserSerializer(serializers.ModelSerializer):
             "main",
             "profile_icon",
             "bio",
+            "discord",
         ]
         read_only_fields = ["id"]
         extra_kwargs = {
