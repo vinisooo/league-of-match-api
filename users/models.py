@@ -23,6 +23,7 @@ class RouteChoices(models.TextChoices):
 
 
 class User(AbstractUser):
+    username = models.CharField(max_length=30, unique=True)
     elo = models.TextField(max_length=25, choices=EloChoices.choices)
     route = models.TextField(
         max_length=10, choices=RouteChoices.choices, null=True, blank=True
