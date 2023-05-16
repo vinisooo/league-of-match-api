@@ -36,18 +36,3 @@ class User(AbstractUser):
     )
     profile_icon = models.URLField()
     bio = models.CharField(blank=True, null=True, max_length=255)
-
-    groups = models.ManyToManyField(
-        "auth.Group",
-        related_name="user_groups",
-        blank=True,
-        help_text="The groups this user belongs to. A user will get all permissions granted to each of their groups.",
-        verbose_name="groups",
-    )
-    user_permissions = models.ManyToManyField(
-        "auth.Permission",
-        related_name="user_permissions",
-        blank=True,
-        help_text="Specific permissions for this user.",
-        verbose_name="user permissions",
-    )

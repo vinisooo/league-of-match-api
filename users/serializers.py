@@ -8,7 +8,17 @@ from rest_framework_simplejwt.tokens import RefreshToken
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ["id", "username", "password", "email", "route", "elo", "main"]
+        fields = [
+            "id",
+            "username",
+            "password",
+            "email",
+            "route",
+            "elo",
+            "main",
+            "profile_icon",
+            "bio",
+        ]
         read_only_fields = ["id"]
         extra_kwargs = {
             "elo": {
