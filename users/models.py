@@ -23,9 +23,9 @@ class RouteChoices(models.TextChoices):
 
 
 class User(AbstractUser):
-    elo = models.TextField(max_length=25, choices=EloChoices.as_choices())
+    elo = models.TextField(max_length=25, choices=EloChoices.choices)
     route = models.TextField(
-        max_length=10, choices=RouteChoices.as_choices(), null=True, blank=True
+        max_length=10, choices=RouteChoices.choices, null=True, blank=True
     )
     main = models.ForeignKey(
         "characters.Character",
