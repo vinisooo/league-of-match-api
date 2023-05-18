@@ -11,11 +11,3 @@ from .models import Character
 class CharacterView(ListAPIView):
     queryset = Character.objects.all()
     serializer_class = CharacterSerializer
-
-
-class CreateCharacterView(APIView):
-    def post(self, request):
-        serializer = CharacterSerializer(data=characters, many=True)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return Response(serializer.data, status=201)
